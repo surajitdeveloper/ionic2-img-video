@@ -7,8 +7,23 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
+  <!-- <button ion-button (click)="openCamera('media')" round>Media</button> -->
+  <button ion-button (click)="openCamera('camera')" round>Camera</button>
+  <button ion-button (click)="openCamera('pickercamera')" round>Picker Camera</button>
+  <button ion-button (click)="openCamera('video')" round>Add Video</button>
+  <button ion-button (click)="image.click()" round>Video</button>
+  <p style="display: none;"><input type="file" accept="video/*" (change)="previewFile(image)" #image /></p>
   <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+    <ion-img width="80" height="80" src="{{cap_img}}"></ion-img>
   </p>
+  <ul>
+    <li *ngFor="let image of images"><img width="80" height="80" src="{{image}}" /></li>
+  </ul>
+  <!-- <video controls>
+    <source type="video/mp4" src="{{video}}">
+  </video> -->
+  <p>
+    <button ion-button (click)="send()" round>Send</button>
+  </p>
+
 </ion-content>
